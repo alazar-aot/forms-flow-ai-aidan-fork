@@ -8,6 +8,7 @@ ARG MODEL_ID=Seethal/sentiment_analysis_generic_dataset
 
 RUN : \
     && python3 -m venv /venv \
+    && pip install --upgrade pip \
     && pip install --default-timeout=1000 -r requirements.txt 
 
 ADD . /forms-flow-data-analysis-api/app

@@ -17,8 +17,9 @@ RUN set -x \
 # (note: using pinned versions to ensure immutable build environment)
 RUN apk update && \
     apk upgrade && \
-    apk add make=4.2.1-r2 && \
-    apk add g++=8.3.0-r0
+    apk add make=4.3-r0 && \
+    apk add g++=11.2.1_git20220219-r2 && \
+    apk add npm
 
 # At least one buried package dependency is using a `git` path.
 # Hence we need to haul in git.

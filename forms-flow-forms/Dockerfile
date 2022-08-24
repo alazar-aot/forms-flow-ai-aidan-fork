@@ -4,7 +4,8 @@
 
 # Use Node image, maintained by Docker:
 # hub.docker.com/r/_/node/
-FROM node:lts-alpine3.10
+# FROM node:lts-alpine3.10
+FROM alpine:3.16
 
 # set working directory
 WORKDIR /forms-flow-forms/app

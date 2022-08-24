@@ -14,7 +14,8 @@ RUN mvn -s /usr/share/maven/ref/settings-docker.xml package
 # Final custom slim java image (for apk command see jdk-11.0.3_7-alpine-slim)
 # FROM adoptopenjdk/openjdk11:jdk-11.0.3_7-alpine
 # FROM adoptopenjdk/openjdk11:jdk-11.0.11_9-alpine
-FROM alpine:3.15
+FROM eclipse-temurin:11.0.16.1_1-jdk
+
 
 ENV JAVA_VERSION jdk-11.0.3+7
 ENV JAVA_HOME=/opt/java/openjdk \

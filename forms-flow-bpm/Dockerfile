@@ -12,12 +12,18 @@ COPY src /tmp/src/
 RUN mvn -s /usr/share/maven/ref/settings-docker.xml package
 
 # Final custom slim java image (for apk command see jdk-11.0.3_7-alpine-slim)
-# FROM adoptopenjdk/openjdk11:jdk-11.0.3_7-alpine
-# FROM adoptopenjdk/openjdk11:jdk-11.0.11_9-alpine
-FROM eclipse-temurin:11.0.16.1_1-jdk
+FROM adoptopenjdk/openjdk11:jdk-11.0.11_9-alpine
 
+#Check for Package updates
+RUN apk update
+# Update Vulnerable Packages
+RUN apk add --upgrade apk-tools
+RUN apk add --upgrade libcrypto1.1
+RUN apk add --upgrade zlib
+RUN apk add --upgrade busybox
+RUN apk add --upgrade libretls
 
-ENV JAVA_VERSION jdk-11.0.3+7
+ENV JAVA_VERSION jdk-11.0.11+9
 ENV JAVA_HOME=/opt/java/openjdk \
     PATH="/opt/java/openjdk/bin:$PATH"
 
